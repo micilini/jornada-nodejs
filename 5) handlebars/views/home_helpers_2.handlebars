@@ -1,0 +1,13 @@
+<h1>Rank</h1>
+{{#ifCond rank '==' 128}}
+  <p>Seu rank é exatamente 128.</p>
+{{else ifCond rank '>' 128}}
+  <p>Seu rank está acima de 128.</p>
+{{else ifCond rank '<' 128}}
+  <p>Seu rank está abaixo de 128.</p>
+{{/ifCond}}
+
+<h2>Usando Negação com `unlessCond`:</h2>
+{{#unlessCond rank '==' 128}}
+  <p>Seu rank não é 128.</p>
+{{/unlessCond}}

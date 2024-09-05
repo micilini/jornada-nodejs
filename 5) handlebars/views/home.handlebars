@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="/home.css">
+
+<h1>Bem Vindo: {{ nome }}</h1>
+<p>Meu número favorito é: {{ numerosDaSorte.[0] }}</p>
+<p>Meu site é: {{ informacoesAdicionais.site }}</p>
+
+{{#if isAtivo }}
+<p>O usuário está ATIVO</p>
+{{else }}
+<p>O usuário não está ATIVO!</p>
+{{/if}}
+
+<h1>Numeros da Sorte</h1>
+<ul>
+  {{#each numerosDaSorte}}
+    <li>Número da sorte: {{this}}</li>
+  {{/each}}
+</ul>
+
+<h1>Informações Adicionais</h1>
+<ul>
+  {{#each informacoesAdicionais}}
+    <li>{{@key}}: {{this}}</li>
+  {{/each}}
+</ul>
+
+{{#with informacoesAdicionais}}
+  <p>Site: {{site}}</p>
+  <p>HTTPS: {{isHttps}}</p>
+{{/with}}
