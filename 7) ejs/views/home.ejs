@@ -1,0 +1,92 @@
+<h1>Bem Vindo: <%= nome %></h1>
+<p>Meu número favorito é: <%= numerosDaSorte[0] %></p>
+<p>Meu site é: <%= informacoesAdicionais.site %></p>
+
+<% if (nome === "Micilini Roll") { %>
+<h1>Bem-vindo, Micilini Roll!</h1>
+<% } else { %>
+<h1>Olá, visitante!</h1>
+<% } %>
+
+<% if (rank > 100) { %>
+<p>Parabéns! Seu rank é <%= rank %>, você está no topo!</p>
+<% } else { %>
+<p>Seu rank é <%= rank %>, continue se esforçando!</p>
+<% } %>
+
+<% if (isAtivo) { %>
+<p>Seu status: Ativo</p>
+<% } else { %>
+<p>Seu status: Inativo</p>
+<% } %>
+
+<% if (dinheiro > 10) { %>
+<p>Você tem R$ <%= dinheiro %> disponíveis na sua conta.</p>
+<% } else { %>
+<p>Seu saldo é insuficiente. Você só tem R$ <%= dinheiro %> disponíveis.</p>
+<% } %>
+
+<% if (informacoesAdicionais.isHttps) { %>
+<p>O site <a href="<%= informacoesAdicionais.site %>"><%= informacoesAdicionais.site %></a> é seguro (HTTPS).</p>
+<% } else { %>
+<p>O site <a href="<%= informacoesAdicionais.site %>"><%= informacoesAdicionais.site %></a> não usa HTTPS, cuidado!</p>
+<% } %>
+
+<% if (isAtivo && dinheiro > 10) { %>
+<p>Você está ativo e tem dinheiro suficiente para fazer compras!</p>
+<% } else if (isAtivo && dinheiro <= 10) { %>
+<p>Você está ativo, mas seu saldo é baixo.</p>
+<% } else { %>
+<p>Você está inativo. Ative sua conta para realizar transações.</p>
+<% } %>
+
+<% if (nome === "Micilini Roll") { %>
+<h1>Bem-vindo, Micilini Roll!</h1>
+<% } %>
+
+<h3>Meus Números da Sorte</h3>
+
+<ul>
+    <% numerosDaSorte.forEach(function(numero, index) { %>
+    <li><%= index %>: <%= numero %></li>
+    <% }); %>
+</ul>
+
+<% for (let chave in informacoesAdicionais) { %>
+<li><strong><%= chave %>:</strong> <%= informacoesAdicionais[chave] %></li>
+<% } %>
+
+<h3>Meus Números da Sorte (Usando loop for)</h1>
+
+    <ul>
+        <% for (let i = 0; i < numerosDaSorte.length; i++) { %>
+        <li><%= i %>: <%= numerosDaSorte[i] %></li>
+        <% } %>
+    </ul>
+
+
+    <ul>
+        <% let i = 0; %>
+        <% while (i < numerosDaSorte.length) { %>
+        <li><%= i %>: <%= numerosDaSorte[i] %></li>
+        <% i++; %>
+        <% } %>
+    </ul>
+
+<%
+  // Criando variáveis locais para simplificar o acesso
+  const meuNome = 'Micilini Roll';
+  const idade = 25;
+  const endereco = {
+    rua: 'Rua das Flores',
+    cidade: 'São Paulo'
+  };
+%>
+
+<p>Nome: <%= meuNome %></p>
+<p>Idade: <%= idade %></p>
+<h2>Endereço</h2>
+<p>Rua: <%= endereco.rua %></p>
+<p>Cidade: <%= endereco.cidade %></p>
+
+<%- include('partials/header') %>
