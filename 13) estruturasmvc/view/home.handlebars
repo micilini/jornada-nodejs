@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boas Vindas</title>
+</head>
+<body>
+    <h1>Boas vindas!</h1>
+    
+    <h2>Lista de Pessoas</h2>
+    <ul>
+        {{#each pessoas}}
+            <li>{{this.nome}} {{this.sobrenome}}</li>
+        {{/each}}
+    </ul>
+
+    <h2>Adicionar Pessoa</h2>
+    <form action="/add" method="POST">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+        <br>
+        <label for="sobrenome">Sobrenome:</label>
+        <input type="text" id="sobrenome" name="sobrenome" required>
+        <br>
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
