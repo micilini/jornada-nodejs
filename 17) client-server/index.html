@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requisição Fetch</title>
+</head>
+<body>
+    <h1>Testando Fetch</h1>
+    <button id="fetchButton">Fazer requisição Fetch</button>
+    <pre id="result"></pre>
+
+    <script>
+        document.getElementById('fetchButton').addEventListener('click', () => {
+            fetch('http://localhost:3000/nomes')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+                })
+                .catch(error => {
+                    document.getElementById('result').textContent = 'Erro: ' + error.message;
+                });
+        });
+    </script>
+</body>
+</html>
