@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Nomes</title>
+  <link rel="stylesheet" href="/public/styles.css">
+</head>
+<body>
+  <h1>Lista de Nomes da API</h1>
+  <ul>
+    {{#each nomesApi}}
+      <li>{{this}}</li>
+    {{/each}}
+  </ul>
+
+  <h1>Lista de Nomes do Banco de Dados</h1>
+  <ul>
+    {{#each nomesDb}}
+      <li>{{this}}</li>
+    {{/each}}
+  </ul>
+
+  <h2>Adicionar Nome</h2>
+  <form action="/save" method="POST">
+    <input type="text" name="nome" placeholder="Digite o nome" required>
+    <button type="submit">Salvar</button>
+  </form>
+</body>
+</html>
